@@ -38,6 +38,7 @@ cat E2col1.csv | grep -c "MIA" > secondc3.txt
 
 cat secondc2.txt >> secondc1.txt
 cat secondc3.txt >> secondc1.txt
+rm secondc2.txt secondc3.txt
 
 #fourth command selects the number of delayed flights by 15 minutes or more
 #for each of the 3 destinations:
@@ -50,22 +51,25 @@ cat E2col1.csv | grep "MIA" | cut -d',' -f3 | grep -w "1.00" -c > miad.txt
 
 cat cltd.txt >> atld.txt
 cat miad.txt >> atld.txt
+rm cltd.txt miad.txt
 
 #fifth command selects number of delayed flights due to weather
 
-cat E2col1.csv | grep "ATL" | cut -d',' -f5 | grep '^\S*' | grep -v 0.00 | grep -cE '[[:digit:]]{1,}' > at$
-cat E2col1.csv | grep "CLT" | cut -d',' -f5 | grep '^\S*' | grep -v 0.00 | grep -cE '[[:digit:]]{1,}' > cl$
-cat E2col1.csv | grep "MIA" | cut -d',' -f5 | grep '^\S*' | grep -v 0.00 | grep -cE '[[:digit:]]{1,}' > mi$
+cat E2col1.csv | grep "ATL" | cut -d',' -f5 | grep '^\S*' | grep -v 0.00 | grep -cE '[[:digit:]]{1,}' > atldw.txt
+cat E2col1.csv | grep "CLT" | cut -d',' -f5 | grep '^\S*' | grep -v 0.00 | grep -cE '[[:digit:]]{1,}' > cltdw.txt
+cat E2col1.csv | grep "MIA" | cut -d',' -f5 | grep '^\S*' | grep -v 0.00 | grep -cE '[[:digit:]]{1,}' > miadw.txt
 
 #creating fourth column
 
 cat cltdw.txt >> atldw.txt
 cat miadw.txt >> atldw.txt
+rm cltdw.txt miadw.txt
 
 paste firstc.txt secondc1.txt atld.txt atldw.txt > table.txt
-echo -e "GNV to:\tTotal flights\tTotal flights delayed (>15min)\tTotal flights delayed due to Weather" > h$
+rm firstc.txt secondc1.txt atld.txt atldw.txt
+echo -e "GNV to:\tTotal flights\tTotal flights delayed (>15min)\tTotal flights delayed due to Weather" > header.txt
 cat table.txt >> header.txt
-less header.txt
+cat header.txt
 
 #Problem 3 Solution
 question3_function () {
