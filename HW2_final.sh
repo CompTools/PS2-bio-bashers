@@ -20,6 +20,10 @@ sort -u originanddest.txt > unique_airport_codes.txt
 question3_function 
 # The above line executes the function within the bash script and thus produces the list of airport codes in the file "uniqure_airport_codes.txt"
 
-# Question 4 solution
+# Problem 4 solution
+question4_function () {
 cat HW2_dataset.csv | grep -oE '[[:alpha:]]{1,}, FL' | sort -u > Unique_FL_airports.txt 
 # The above command uses grep to only pull out Florida cities with airports and print a list of all airports in alphabetical order.
+}
+question4_function
+# The above line executes the function within the bash script and creates a list of airport codes in the file "Unique_FL_airports.txt"
