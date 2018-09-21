@@ -51,6 +51,7 @@ cat cltdw.txt >> atldw.txt
 cat miadw.txt >> atldw.txt
 
 paste firstc.txt secondc1.txt atld.txt atldw.txt > table.txt
-less table.txt
-
+echo -e "GNV to:\tTotal flights\tTotal flights delayed (>15min)\tTotal flights delayed due to Weather" > header.txt
+cat table.txt >> header.txt
+less header.txt
 
