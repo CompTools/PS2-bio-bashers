@@ -5,13 +5,9 @@
 #Creating file to be used in subsequent questions
 cat flights.May2017-Apr2018.csv | cut -d',' -f3,4,5,6,7,8,9,10,13,16,21,24 > HW2_dataset.csv 
 
-<<<<<<< HEAD
-#Problem 1 Solution
-cat HW2_dataset.csv | grep "GNV" | grep -c "1.00"
-=======
 #Problem 1 solution
 cat HW2_dataset.csv | cut -d',' -f1,2,3,4,5,6,9,10 | grep "GNV" | grep -c "1.00"
->>>>>>> aa1957833d6f44fa73500afb7db0de33e8aa2ece
+
 
 #Problem 2 Solution
 #first command cuts the columns needed for exercise 2, in order: ORIGIN, DEST,
