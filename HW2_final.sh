@@ -6,6 +6,8 @@
 cat flights.May2017-Apr2018.csv | cut -d',' -f3,4,5,6,7,8,9,10,13,16,21,24 > HW2_dataset.csv 
 
 #Problem 1 solution
+#The cut command cuts the columns we need for Q1 and grep command sort for GNV 
+#grep -c counts the flights that were delyed ("1.00"= delayed more than 15 mins) 
 cat HW2_dataset.csv | cut -d',' -f1,2,3,4,5,6,9,10 | grep "GNV" | grep -c "1.00"
 
 
